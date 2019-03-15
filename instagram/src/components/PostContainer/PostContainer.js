@@ -8,18 +8,14 @@ function PostContainer(props){
     return (
       <>
         {props.postContainer.map(postContainer => (
-          <div className="container">
-            <div className="header">
-              <img src={postContainer.thumbnailUrl} alt="profile pic" />
-              <p>{postContainer.username}</p>
-            </div>
-
-            <div className='picture'>
-                <img src={postContainer.imageUrl} alt='insta-pic' />
-            </div>
-
+          <div className="container card">
+              <div className='user'>
+                <img src={postContainer.thumbnailUrl} alt="profile pic" className='profilePic' />
+                <p className='userName'>{postContainer.username}</p>
+              </div>
+              <img src={postContainer.imageUrl} alt='insta-pic' className='picture' />
             <div className='comment'>
-                <p>{postContainer.likes} likes</p>
+                <p className='likesPic'>{postContainer.likes} likes</p>
                 <div>
                     {postContainer.comments.map(comment => (
                         <CommentSection comment={comment} />

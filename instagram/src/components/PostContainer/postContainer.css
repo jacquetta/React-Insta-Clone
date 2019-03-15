@@ -1,0 +1,32 @@
+.card {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 5px;
+}
+
+.profilePic {
+   height: 40px;
+   border-radius: 50%;
+}
+
+.userName{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.picture {
+    width: 100%;
+    max-width: 500px;
+}
+
+.likesPic{
+    font-size: 1.54rem;
+}

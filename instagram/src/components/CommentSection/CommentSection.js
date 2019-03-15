@@ -4,8 +4,7 @@ import './commentSection.css';
 function CommentSection(props){
    return(
     <>
-    <p>{props.comment.username}</p>
-    <p>{props.comment.text}</p>
+           <p>{props.comment.username} {props.comment.text}</p>
 </>
      );
 }
