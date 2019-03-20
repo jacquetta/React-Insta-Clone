@@ -1,28 +1,29 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
-import './postContainer.css'
+import './postContainer.css';
+import AddComment from '../CommentSection/addComment';
+
 
 function PostContainer(props){
-    console.log(props)
     return (
       <>
-        {props.postContainer.map(postContainer => (
-          <div className="container card">
+        {props.postings.map(posting => (
+          <div className="container">
               <div className='user'>
-                <img src={postContainer.thumbnailUrl} alt="profile pic" className='profilePic' />
-                <p className='userName'>{postContainer.username}</p>
+                <img src={posting.thumbnailUrl} alt="profile pic" className='profilePic' />
+                <p className='userName'>{posting.username}</p>
               </div>
-              <img src={postContainer.imageUrl} alt='insta-pic' className='picture' />
+              <img src={posting.imageUrl} alt='insta-pic' className='picture' />
             <div className='comment'>
-                <p className='likesPic'>{postContainer.likes} likes</p>
+                <p className='likesPic'>{posting.likes} likes</p>
                 <div>
-                    {postContainer.comments.map(comment => (
-                        <CommentSection comment={comment} />
-                    ))}
+                   <CommentSection comments ={posting.comments} />
                 </div>
-                <p>{postContainer.timestamp}</p>
-              
+                <p>{posting.timestamp}</p>
+                <hr></hr>
+
+              <AddComment />
             </div>
           </div>
         ))}
