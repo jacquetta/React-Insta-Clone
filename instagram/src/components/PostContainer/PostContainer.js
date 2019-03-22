@@ -2,13 +2,26 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
 import './postContainer.css';
-import AddComment from '../CommentSection/addComment';
+import Likes from './Likes';
 
 
-function PostContainer(props){
-    return (
-      <>
-        {props.postings.map(posting => (
+class PostContainer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            likes: props.postings.likes
+        };
+    }
+
+    increaseLikes = () => {
+        let likes = this.state.likes + 1;
+        this.setState({likes});
+    };
+
+    render(){
+    return ( 
+        <div>
+        {this.props.postings.map(posting => (
           <div className="container">
               <div className='user'>
                 <img src={posting.thumbnailUrl} alt="profile pic" className='profilePic' />
@@ -16,19 +29,16 @@ function PostContainer(props){
               </div>
               <img src={posting.imageUrl} alt='insta-pic' className='picture' />
             <div className='comment'>
-                <p className='likesPic'>{posting.likes} likes</p>
-                <div>
-                   <CommentSection comments ={posting.comments} />
-                </div>
+                <Likes increaseLikes={this.increaseLikes}  likes={this.state.likes} />
+                <CommentSection  comments ={posting.comments} />
                 <p>{posting.timestamp}</p>
                 <hr></hr>
-
-              <AddComment />
             </div>
           </div>
         ))}
-      </>
+      </div>
     );
+    }
 }
 
 PostContainer.propTypes = {

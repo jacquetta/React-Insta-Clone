@@ -10,7 +10,7 @@ const SearchBar = (props) => (
     </div>
 
     <div className='center'>
-        <input type='text' placeholder='Search' />
+        <input type='text' placeholder='Search' onKeyDown={props.searchingPost} />
     </div>
     
     <div className='right'>
