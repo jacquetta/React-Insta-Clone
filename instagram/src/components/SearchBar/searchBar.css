@@ -19,8 +19,11 @@
 
 h1{
     padding-left: 5px;
+    font-family: 'Norican', cursive;
+    font-weight: bold;
 }
-span{
+
+.searchSpan{
     border-right: 2px solid darkslategray;
     height: 30px;
     padding: 5px;

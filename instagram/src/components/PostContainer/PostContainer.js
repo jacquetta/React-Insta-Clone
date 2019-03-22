@@ -1,33 +1,44 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
-import './postContainer.css'
+import './postContainer.css';
+import Likes from './Likes';
 
-function PostContainer(props){
-    console.log(props)
-    return (
-      <>
-        {props.postContainer.map(postContainer => (
-          <div className="container card">
+
+class PostContainer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            likes: props.postings.likes
+        };
+    }
+
+    increaseLikes = () => {
+        let likes = this.state.likes + 1;
+        this.setState({likes});
+    };
+
+    render(){
+    return ( 
+        <div>
+        {this.props.postings.map(posting => (
+          <div className="container">
               <div className='user'>
-                <img src={postContainer.thumbnailUrl} alt="profile pic" className='profilePic' />
-                <p className='userName'>{postContainer.username}</p>
+                <img src={posting.thumbnailUrl} alt="profile pic" className='profilePic' />
+                <p className='userName'>{posting.username}</p>
               </div>
-              <img src={postContainer.imageUrl} alt='insta-pic' className='picture' />
+              <img src={posting.imageUrl} alt='insta-pic' className='picture' />
             <div className='comment'>
-                <p className='likesPic'>{postContainer.likes} likes</p>
-                <div>
-                    {postContainer.comments.map(comment => (
-                        <CommentSection comment={comment} />
-                    ))}
-                </div>
-                <p>{postContainer.timestamp}</p>
-              
+                <Likes increaseLikes={this.increaseLikes}  likes={this.state.likes} />
+                <CommentSection  comments ={posting.comments} />
+                <p>{posting.timestamp}</p>
+                <hr></hr>
             </div>
           </div>
         ))}
-      </>
+      </div>
     );
+    }
 }
 
 PostContainer.propTypes = {
