@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './commentsection.css';
 
 const CommentSection = props => {
@@ -8,7 +7,6 @@ const CommentSection = props => {
             {props.userComments.map(userComment => (
                 <div>
                     <p className="user"><span>{userComment.username}</span> {userComment.text}</p>
-                    <p>{userComment.timestamp}</p>
                 </div>
             ))}
             <hr />
@@ -16,4 +14,12 @@ const CommentSection = props => {
         </div>
     )
 }
+
+// CommentSection.propTypes = {
+//     userComment: PropTypes.shape({
+//         username: PropTypes.string.isRequired,
+//         text: PropTypes.string.isRequired,
+//         timestamp: PropTypes.string.isRequired
+//     })
+// }
 export default CommentSection;
