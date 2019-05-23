@@ -9,8 +9,8 @@ const PostContainer = props => {
             {props.profile.map(user => (
                 <div className="w3-card-4">
                     <header className="w3-container">
-                        <img className="url-thumbnail" src={user.thumbnailUrl} alt={user.profile}/>
-                        <p>{user.username}</p>
+                        <p><img className="url-thumbnail" src={user.thumbnailUrl} alt={user.profile}/> 
+                         <span></span> {user.username}</p>
                     </header>
                     <img className="imageUrl" src={user.imageUrl} alt={user.imageUrl} />
                     <i class="far fa-heart fa-lg"></i>

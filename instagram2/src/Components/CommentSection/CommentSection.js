@@ -1,13 +1,18 @@
 import React from 'react';
 
+import './commentsection.css';
 
 const CommentSection = props => {
     return(
-        <div>
+        <div className="w3-container">
             {props.userComments.map(userComment => (
-                <p>{userComment.username}</p>
-                <p>{userComment.</p>
+                <div>
+                    <p className="user"><span>{userComment.username}</span> {userComment.text}</p>
+                    <p>{userComment.timestamp}</p>
+                </div>
             ))}
+            <hr />
+            <input type="text" placeholder="Add a comment..." className="w3-border-0" />
         </div>
     )
 }
