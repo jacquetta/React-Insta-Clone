@@ -1,0 +1,16 @@
+.w3-card-4{
+    align-content: center;
+    border: lightgray 1px solid;
+    width: 500px;
+    margin: 2% auto;
+}
+
+.imageUrl{
+    width: 100%;
+    max-width: 500px;
+}
+
+.url-thumbnail {
+    width: 30px;
+    border-radius: 50%;
+}

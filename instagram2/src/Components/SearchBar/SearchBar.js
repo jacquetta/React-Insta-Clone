@@ -12,9 +12,9 @@ const SearchBar = () => {
             </div>
 
             <input type="text" placeholder="Search" className="w3-bar-item w3-input search update"/>
-            <a href="#" class="w3-bar-item w3-button w3-right update"><i class="far fa-compass fa-lg"></i></a>
-            <a href="#" class="w3-bar-item w3-button w3-right update"><i class="far fa-heart fa-lg"></i></a>
-            <a href="#" class="w3-bar-item w3-button w3-right update"><i class="far fa-user fa-lg"></i></a>
+            <a href="#gps" class="w3-bar-item w3-button w3-right update"><i class="far fa-compass fa-lg"></i></a>
+            <a href="#like" class="w3-bar-item w3-button w3-right update"><i class="far fa-heart fa-lg"></i></a>
+            <a href="#user" class="w3-bar-item w3-button w3-right update"><i class="far fa-user fa-lg"></i></a>
         </div>
     )
 }
