@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      data: []
+      data: [],
+      filtered: []
     }
   }
 
@@ -18,11 +19,22 @@ class App extends React.Component {
       data: dummydata
     })
   }
+
+  searchHander = event => {
+    //eslint-disable-next-line
+    const postings = this.state.data.filter(post => {
+      if(post.username.includes(event.target.value)){
+        return post;
+      }
+    });
+    this.setState({filtered: postings});
+  };
+
   render(){
     return(
       <div className="App">
-        <SearchBar />
-        <PostContainer profile={this.state.data} />
+        <SearchBar searching={this.state.searching} searchPost={this.searchHander} />
+        <PostContainer profile={this.state.filtered.length > 0 ? this.state.filtered : this.state.data} />
       </div>
     )
   }
