@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Comment from './Comment';
+import AddComment from './AddComment';
 import './commentsection.css';
 
 class CommentSection extends React.Component {
@@ -17,32 +20,22 @@ class CommentSection extends React.Component {
 
     formHandler = event => {
         event.preventDefault();
-        let addComment = {text: this.state.comment, username: 'pinkeranger'};
+        const addComment = {text: this.state.comment, username: 'pinkranger'};
         const comments = this.state.comments.slice();
         comments.push(addComment);
         this.setState({
             comments, comment: ''
         })
-    }
+    };
 
 
     render(){
         return (
             <div className="w3-container">
-                {this.state.comments.map((comment, index) => (
-                    <div key={index}>
-                        <p className="user"><span>{comment.username}</span> {comment.text}</p>
-                    </div>
-                ))}
-                <hr />
-                <form onSubmit={this.formHandler}>
-                    <input
-                    type="text"
-                    value={this.state.comment}
-                    onChange={this.addNewComment}
-                    placeholder="Add a comment..."
-                    className="w3-border-0" />
-                </form>
+                {this.state.comments.map((add,index) => 
+                    <Comment key={index} comment={add} />)} 
+                    <AddComment comment={this.state.comment} submit={this.formHandler} change={this.addNewComment} />   
+                             
             </div>
         )
     }
@@ -50,9 +43,12 @@ class CommentSection extends React.Component {
 
 
 CommentSection.propTypes = {
-    userComment: PropTypes.shape({
-        username: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-    })
+    comments: PropTypes.arrayOf(
+        PropTypes.shape({
+            text: PropTypes.string,
+            username: PropTypes.string
+        })
+    )
 }
+
 export default CommentSection;
