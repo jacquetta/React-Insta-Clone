@@ -9,7 +9,7 @@ class CommentSection extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            comments: props.userComments,
+            comments: props.comments,
             comment: ''
         }
     }
@@ -34,7 +34,7 @@ class CommentSection extends React.Component {
             <div className="w3-container">
                 {this.state.comments.map((add,index) => 
                     <Comment key={index} comment={add} />)} 
-                    <AddComment comment={this.state.comment} submit={this.formHandler} change={this.addNewComment} />   
+                    <AddComment comment={this.state.comment} submit={this.formHandler} changeAdd={this.addNewComment} />   
                              
             </div>
         )
