@@ -1,0 +1,16 @@
+h2{
+    font-family: 'Norican', cursive;
+    margin-bottom: 3%;
+}
+
+.update{
+    margin: 2% auto 0 auto;
+}
+
+.search {
+    border: grey 1px solid;
+}
+
+.w3-bar {
+    border-bottom: lightgrey 2px solid;
+}

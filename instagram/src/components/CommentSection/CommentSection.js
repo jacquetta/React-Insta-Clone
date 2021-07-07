@@ -2,6 +2,7 @@ import React from 'react';
 import './commentSection.css';
 import Comment from "./Comment";
 import AddComment from './AddComment';
+import PropTypes  from 'prop-types';
 
 
 class CommentSection extends React.Component {
@@ -41,7 +42,7 @@ class CommentSection extends React.Component {
 
     handleSubmit =  event => {
         event.preventDefault();
-        const addComment = {text: this.state.comment, username: 'Pink Power Ranger'};
+        const addComment = {text: this.state.comment, username: 'pinkpowerranger'};
         const comments = this.state.comments.slice();
         comments.push(addComment);
         this.setState({comments, comment: '' });
@@ -61,6 +62,10 @@ class CommentSection extends React.Component {
     }
 }
 
-
+CommentSection.propTypes = {
+    comments: PropTypes.arrayOf(
+        PropTypes.shape({text: PropTypes.string, username: PropTypes.string})
+    )
+}
 
 export default CommentSection;
